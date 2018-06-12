@@ -3,11 +3,11 @@
 # Site wide configuration
 ####################################
 #
-title: zhujiajun
-email: zhujiajun.me@gmail.com
-description: zhujiajun's blog,powered by jekyll.
+title: silentself
+email: silentself@126.com
+description: silentself's blog,powered by jekyll.
 url: https://silentself.github.io # the base hostname & protocol for your site
-keywords: ["Programming", "Java", "Scala","Blog"]
+keywords: ["Programming", "Java", "Blog"]
 
 #
 ###################################
@@ -33,11 +33,11 @@ kramdown:
 ####################################
 #
 owner:
-  name: zhujiajun
+  name: silentself
   avatar: avatar.jpg
-  job: "Java & Scala Developer"
-  bio: "A backend developer who loves design awesome things. Working for Dianping at in Shanghai, China."
-  email: zhujiajun.me@gmail.com
+  job: "Java Developer"
+  bio: "A backend developer who loves design awesome things. Working for CTJSoft at in BeuJing, China."
+  email: silentself@126.com
   disqus-shortname: #username
   twitter:  #username
   facebook: #username
@@ -48,7 +48,7 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: zjiajun #username
+  github: silentself #username
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: #username
   xing: #username
