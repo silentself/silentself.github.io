@@ -14,7 +14,7 @@ keywords: ["Programming", "Java", "Blog"]
 # Jekyll configuration
 ####################################
 #
-timezone:          Asia/Shanghai
+timezone:          Asia/Beijing
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
