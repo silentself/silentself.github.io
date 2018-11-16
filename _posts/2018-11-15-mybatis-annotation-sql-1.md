@@ -31,37 +31,36 @@ CRUD使用的就是上面的注解，这个都较为普通，在这里简单描�
 
 ```java
 @Select("select * from tbl_varys_m_user t where t.us_username = #{username} and t.us_pwd = #{password}")
-	@Results(id = "user_resultMap",value = {
-	       @Result(property = "id",  column = "us_uuid",id=true),
-	       @Result(property = "orgid",  column = "us_orgid_fk"),
-	       @Result(property = "username",  column = "us_username"),
-	       @Result(property = "password",  column = "us_pwd"),
-	       @Result(property = "nickname",  column = "us_nickname"),
-	       @Result(property = "creatorid",  column = "us_usid_creator"),
-	       @Result(property = "telNum",  column = "us_tel_num"),
-	       @Result(property = "status",  column = "us_status"),
-	       @Result(property = "type",  column = "us_type"),
-	       @Result(property = "email",  column = "us_email"),
-	       @Result(property = "isSub",  column = "us_issub"),
-	       @Result(property = "createTime",  column = "us_create_time"),
-	       @Result(property = "modifyTime",  column = "us_modify_time")
-	})
-	User selectUserByPwdAndUsername(@Param("password") String password, @Param("username") String username);
+@Results(id = "user_resultMap",value = {
+    @Result(property = "id",  column = "us_uuid",id=true),
+    @Result(property = "orgid",  column = "us_orgid_fk"),
+    @Result(property = "username",  column = "us_username"),
+    @Result(property = "password",  column = "us_pwd"),
+    @Result(property = "nickname",  column = "us_nickname"),
+    @Result(property = "creatorid",  column = "us_usid_creator"),
+    @Result(property = "telNum",  column = "us_tel_num"),
+    @Result(property = "status",  column = "us_status"),
+    @Result(property = "type",  column = "us_type"),
+    @Result(property = "email",  column = "us_email"),
+    @Result(property = "isSub",  column = "us_issub"),
+    @Result(property = "createTime",  column = "us_create_time"),
+    @Result(property = "modifyTime",  column = "us_modify_time")
+})
+User selectUserByPwdAndUsername(@Param("password") String password, @Param("username") String username);
 ```
 
 2)@Update
 
 ```java
 @Update({ "update tbl_varys_m_user set us_pwd = #{newPwd} where us_uuid = #{uuid} and us_pwd = #{oldPwd}" })
-	int modifyPassword(@Param("uuid") Integer uuid, @Param("oldPwd") String oldPassword,
-			@Param("newPwd") String newPassword);
+int modifyPassword(@Param("uuid") Integer uuid, @Param("oldPwd") String oldPassword,@Param("newPwd") String newPassword);
 ```
 
 3)@Insert
 
 ```java
 @Insert({ "insert into tbl_varys_r_account(ac_parent_account_id,ac_accont_id) values(#{pid},#{sid})" })
-	int insertAccountLinkedInfo(@Param("pid") Integer parentId, @Param("sid") Integer subId);
+int insertAccountLinkedInfo(@Param("pid") Integer parentId, @Param("sid") Integer subId);
 ```
 
 4)@Delete
@@ -74,16 +73,16 @@ CRUD使用的就是上面的注解，这个都较为普通，在这里简单描�
 
 ```java
 @Results(id = "user_resultMap",value = {
-	       @Result(property = "id",  column = "us_uuid",id=true),
-	      ....
+    @Result(property = "id",  column = "us_uuid",id=true),
+    ....
 ```
 
 只需要在@Results注解中设置属性id的值，再其他方法放可以通过注解@ResultMap注解复用
 
 ```java
-	@Select("select * from tbl_varys_m_user t where t.us_username = #{username} and t.us_email = #{email}")
-	@ResultMap("user_resultMap")
-	User selectUserByAccountAndEmail(@Param("username") String username, @Param("email") String email);
+@Select("select * from tbl_varys_m_user t where t.us_username = #{username} and t.us_email = #{email}")
+@ResultMap("user_resultMap")
+User selectUserByAccountAndEmail(@Param("username") String username, @Param("email") String email);
 ```
 
 #### 3、如何设置主键返回
@@ -93,11 +92,10 @@ CRUD使用的就是上面的注解，这个都较为普通，在这里简单描�
 ##### 1）返回自增主键
 
 ```java
-@Insert({ "insert into tbl_varys_m_user(us_orgid_fk,us_username,", "us_pwd,us_nickname,us_usid_creator,",
-			"us_tel_num,us_email,us_status,", "us_type,us_issub,us_create_time) ", "values(#{orgid},#{username},",
-			"#{password},#{nickname},#{creatorID},", "#{telNum},#{email},#{status},", "'1',#{isSub},#{createTime})" })
+@Insert({ "insert into tbl_varys_m_user(us_orgid_fk,us_username,", "us_pwd,us_nickname,us_usid_creator,","us_tel_num,us_email,us_status,", "us_type,us_issub,us_create_time) ", "values(#{orgid},#{username},",
+"#{password},#{nickname},#{creatorID},", "#{telNum},#{email},#{status},", "'1',#{isSub},#{createTime})" })
 @Options(useGeneratedKeys = true, keyProperty = "userid")
-	int insertUserinfo(CustomerRegisterForm registerForm);
+int insertUserinfo(CustomerRegisterForm registerForm);
 ```
 
 增加注解@Options并设置属性useGeneratedKeys为true，同时指定主键返回到当前对象的那个字段keyProperty = "userid"
@@ -131,7 +129,7 @@ CRUD使用的就是上面的注解，这个都较为普通，在这里简单描�
 			"<when test = 'mediaTypeID != null'> AND c.td_mdid_fk  </when> ",
 			"<when test = 'startIndex != null and pageSize != null'> LIMIT #{startIndex},#{pageSize} </when> ",
 			"</script>" })
-	List<ClientSimpleForm> selectUserInfoListByPage(SearchClientListForm condition);
+List<ClientSimpleForm> selectUserInfoListByPage(SearchClientListForm condition);
 ```
 
 另外，**上面的sql中没有用到ResulMap做映射，使用关键字AS改了结果集中的别名，这两种方式都可以**
@@ -179,23 +177,23 @@ public static String queryConditionNotEmpty(final SearchMCNListForm condition) {
 ②、使用Provider注解（如下：@SelectProvider）在持久层对应方法中指定，相当于代替了CRUD的源注解（如：@Select）
 
 ```java
-	@Results({ 
-			@Result(property = "mcnID", column = "td_mcn_num"),
-			@Result(property = "provinceName", column = "ap_name"),
-			@Result(property = "publicName", column = "og_publicnum"),
-			@Result(property = "wechatNum", column = "og_wechatnum"),
-			@Result(property = "number121", column = "us_username"),
-			@Result(property = "mediaTypeName", column = "mt_name"),
-			@Result(property = "lastTime", column = "og_expire_time"),
-			@Result(property = "id", column = "tp_id"), 
-			@Result(property = "platName", column = "tp_name"),
-			@Result(property = "phone", column = "td_tel_num"), 
-			@Result(property = "url", column = "tp_logo_url"),
-			@Result(property = "status", column = "td_loginstate"
-			)
-	})
-	@SelectProvider(method = "queryConditionNotEmpty",type=Test.class)
-	List<MCNInfoForm> selectOrganizationList(SearchMCNListForm condition);
+@Results({ 
+    @Result(property = "mcnID", column = "td_mcn_num"),
+    @Result(property = "provinceName", column = "ap_name"),
+    @Result(property = "publicName", column = "og_publicnum"),
+    @Result(property = "wechatNum", column = "og_wechatnum"),
+    @Result(property = "number121", column = "us_username"),
+    @Result(property = "mediaTypeName", column = "mt_name"),
+    @Result(property = "lastTime", column = "og_expire_time"),
+    @Result(property = "id", column = "tp_id"), 
+    @Result(property = "platName", column = "tp_name"),
+    @Result(property = "phone", column = "td_tel_num"), 
+    @Result(property = "url", column = "tp_logo_url"),
+    @Result(property = "status", column = "td_loginstate"
+           )
+})
+@SelectProvider(method = "queryConditionNotEmpty",type=Test.class)
+List<MCNInfoForm> selectOrganizationList(SearchMCNListForm condition);
 ```
 
 *写在后面：不过本人在使用Provider注解替代CRUD注解时，通过单元测试报错，BuidlerException，由于时间的原因没来得及细分析原因，直接改成了使用"\<script>"标签的写法，再次先留下疑问，后续补充......*
