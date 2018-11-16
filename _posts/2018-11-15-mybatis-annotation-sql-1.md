@@ -12,7 +12,7 @@ excerpt:    "mybatis注解sql"
 
 categories: [java]
 
-tags: [mybatis][sql]
+tags: [mybatis]
 
 comments: true
 
