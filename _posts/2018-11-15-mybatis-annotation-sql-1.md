@@ -402,10 +402,9 @@ ThirdPartyPlatForm selectThirdPlat(String param);
 
 写在后面：***最近做的一个子模块用户中心，一时心血来潮，想尝试不写mapper文件了，而用完注解版之后只想说，。。。。，好了大家还是用mapper文件吧，如果简单的sql可以用注解来实现，复杂的尤其是映射的对象比较复杂的，还是老老实实在mapper文件里面写吧***
 
-最后跟搭建推荐一本感觉还不错的书*刘增辉*编著的《Mybatis从入门到精通》
+最后跟搭建推荐一本感觉还不错的书*刘增辉*编著的《Mybatis从入门到精通》，下面是本人百度网盘分享链接
 
-链接：https://pan.baidu.com/s/1zOhaDl7Ef2Pj640gD5pkUQ 
-提取码：if38 
+[点击这里](https://pan.baidu.com/s/1zOhaDl7Ef2Pj640gD5pkUQ )  提取码：if38 
 
 
 
