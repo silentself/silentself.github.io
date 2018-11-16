@@ -1,20 +1,12 @@
 ---
-
 layout: post
-
-title:  mybatis-注解sql-第一篇
-
-excerpt:    "mybatis注解sql"
-
+title:  mybatis-注解版<1>
+excerpt: "mybatis-注解版sql一直以来被应用的很少，主要是由于sql修改之后还需要编译之后才能运行......"
 categories: [java]
-
 tags: [mybatis]
-
 comments: true
-
 ---
-	mybatis-注解版sql一直以来被应用的很少，主要是由于sql修改之后还需要编译之后才能运行，下面根据本人在工作中用到的情况分需求来一一演示，如有不对之处还望指正，请轻喷。
-
+mybatis-注解版sql一直以来被应用的很少，主要是由于sql修改之后还需要编译之后才能运行，下面根据本人在工作中用到的情况分需求来一一演示，如有不对之处还望指正，请轻喷。
 <!---more--->
 
 #### 1、四个本命注解@Select、@Update、@Delete、@Insert
