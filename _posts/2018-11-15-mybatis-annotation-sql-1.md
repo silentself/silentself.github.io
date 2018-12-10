@@ -406,6 +406,8 @@ ThirdPartyPlatForm selectThirdPlat(String param);
 
 [点击这里](https://pan.baidu.com/s/1zOhaDl7Ef2Pj640gD5pkUQ )  提取码：if38 
 
+[下一篇](https://silentself.github.io/articles/2018-12/mybatis-annotation-sql-2)
+
 
 
 
