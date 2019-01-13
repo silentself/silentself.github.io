@@ -84,3 +84,6 @@ Main-Class: org.springframework.boot.loader.JarLauncher
 报错：在执行clean命令时删除某个子工程的jar/war文件失败
 
 一般而言，重新启动一下IED就好了
+
+[**下一篇**](https://silentself.github.io/articles/2018-11/maven-build-2)
+
