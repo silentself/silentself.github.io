@@ -12,9 +12,7 @@ comments: true
 
 #### 1、Mapper文件预编译sql中特殊字符的处理
 
-| <    | <=   | >    | >=    | &     | '      | "      |
-| ---- | ---- | ---- | ----- | ----- | ------ | ------ |
-| &lt; | &lt; | &gt; | &gt;= | &amp; | &apos; | &quot; |
+![1547379203644](C:\Users\tomcat\AppData\Roaming\Typora\typora-user-images\1547379203644.png)
 
 大于小于等符合在动态sql预编译时属于特殊字符，因此在写mapper文件时需要使用对应的表达式来代替，同样的之前关于[mybatis注解版](https://silentself.github.io/articles/2018-11/mybatis-annotation-sql-1)的同样也需要用上述方式处理
 
