@@ -8,7 +8,7 @@ comments: true
 
 工作中遇见的一些mybatis小点，怕忘记了，总结一下
 
-<!-- more -->
+<!--more-->
 
 #### 1、Mapper文件预编译sql中特殊字符的处理
 
