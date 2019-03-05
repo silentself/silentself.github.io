@@ -96,3 +96,40 @@ Percentage of the requests served within a certain time (ms)
  100%    519 (longest request)
 ```
 
+#### 4.安装时出错
+
+使用命令
+
+```cmd
+httpd -k install
+```
+
+报错：
+
+```cmd
+(OS 10013)以一种访问权限不允许的方式做了一个访问套接字的尝试。  : AH00072: make_sock: could not bind to address [::]:8080
+(OS 10013)以一种访问权限不允许的方式做了一个访问套接字的尝试。  : AH00072: make_sock: could not bind to address 0.0.0.0:8080
+AH00451: no listening sockets available, shutting down
+AH00015: Unable to open logs
+```
+
+说明当前端口被占用，需要去/Apache24/conf下的httpd.conf文件修改listen端口号
+
+#### 5.代理测试
+
+如果你不方便查看日志分析的话（一般是对非本机测试，比如测试环境或准线上环境），可以打开 Finddler，设
+
+置只抓取指定host的数据包 后，在ab测试器的命令里加入-X 127.0.0.1:8888会在测试时使用代理（
+
+比如：
+
+```cmd
+ab -n 10 -c 10 -X 127.0.0.1:8888 http://www-test.shop.com
+```
+
+
+
+），这样就可以用 Finddler 记下所有请求了，并看到失败状态码的请求返回了什么内容，就能进一步准确地分析
+
+测试失败的原因了。
+
