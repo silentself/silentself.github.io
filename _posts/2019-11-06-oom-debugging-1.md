@@ -1,10 +1,10 @@
-```
+---
 layout: post
 title:  OOM的排查过程
 categories: [Java]
 tags: [OOM,Java]
 comments: true
-```
+---
 
 好久不写博客了，现在抽时间记录一下一次OOM异常的排查过程
 
